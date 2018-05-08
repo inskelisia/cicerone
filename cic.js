@@ -3,7 +3,6 @@ const Discord = require("discord.js");
 const bot = new Discord.Client();
 const tok = "NDQzMjY1NTQ5OTQ2OTc4MzEy.DdNMoQ._-CemGq4GWNW-yfEuJii7_qCIJ8";
 bot.on("ready", () => {console.log("Cicerone, ready to report!");
-  bot.user.setStatus('dnd');
   bot.user.setActivity("over Trivia Route", {type: "WATCHING"});
                       });
 
