@@ -1,10 +1,10 @@
+const tok = "NDQzMjY1NTQ5OTQ2OTc4MzEy.DdNMoQ._-CemGq4GWNW-yfEuJii7_qCIJ8";
 const botconfig = require("./botconfig.json");
 const Discord = require("discord.js");
 const bot = new Discord.Client();
-const tok = "NDQzMjY1NTQ5OTQ2OTc4MzEy.DdNMoQ._-CemGq4GWNW-yfEuJii7_qCIJ8";
 bot.on("ready", () => {console.log("Cicerone, ready to report!");
   bot.user.setActivity("over Trivia Route", {type: "WATCHING"});
-                      });
+});
 
 bot.on("message", (message) => {
   if (message.content.startsWith("ping")) {
@@ -28,7 +28,8 @@ bot.on("message", async message => {
     .setColor("#e56b00")
     .addField("Suggested Answer", answer);
     message.channel.send(".prune " + `<@${message.author.id}>`+" 1");
-    return message.channel.send(ansEmbed);
+    message.channel.send(ansEmbed);
+    return message.delete();
   }
 
   if(cmd === `${prefix}kick`){
@@ -51,7 +52,11 @@ bot.on("message", async message => {
     .addField("Reason", ":" + kReason);
 
     let kickChannel = message.guild.channels.find(`name`, "incidents");
-    if(!kickChannel) return message.channel.send("Can't find incidents channel.");
+    if(!kickChannel) message.channel.send("Can't find incidents channel.");
+    return message.delete();
+
+    let incidentchannel = message.guild.channels.find(`name`, "incidents");
+    if(!incidentchannel) return message.channel.send("Can't find incidents channel.");
 
     message.guild.member(kUser).kick(kReason);
     kickChannel.send(kickEmbed);
@@ -129,7 +134,8 @@ bot.on("message", async message => {
     .addField("You Joined", message.member.joinedAt)
     .addField("Total Members", message.guild.memberCount);
 
-    return message.channel.send(serverembed);
+    message.channel.send(serverembed);
+    return message.delete();
   }
 
 
@@ -144,7 +150,8 @@ bot.on("message", async message => {
     .addField("Bot Name", bot.user.username)
     .addField("Created On", bot.user.createdAt);
 
-    return message.channel.send(botembed);
+    message.channel.send(botembed);
+    return message.delete();
   }
 
   if(cmd === `${prefix}help`){
@@ -162,7 +169,6 @@ bot.on("message", async message => {
 
     return message.channel.send(helpembed);
   }
-
 });
 
 bot.login(tok);
