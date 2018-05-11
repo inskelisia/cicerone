@@ -63,4 +63,4 @@ async def clr(ctx, number):
 async def on_message(message):
     await bot.delete_message(message)
 
-bot.run("NDQzMjY1NTQ5OTQ2OTc4MzEy.DdNMoQ._-CemGq4GWNW-yfEuJii7_qCIJ8")
+bot.run("NDQzMjkwNDAwMjkyMjA4NjQy.DdapEw.FrCnxvOX-fyntfNgdOnfs28kXsg")
