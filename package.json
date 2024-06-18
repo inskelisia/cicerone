@@ -11,7 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "discord.io": "^2.5.3",
-    "discord.js": "^11.3.2",
+    "discord.js": "^11.6.4",
     "exec-php": "0.0.4",
     "run-php": "0.0.1",
     "winston": "^2.4.2"
